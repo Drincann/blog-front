@@ -1,0 +1,23 @@
+.articles-root {
+  padding: 1rem;
+}
+
+.articles-root:nth-child(1) {
+  padding-top: 0;
+}
+
+.articles-item {
+  transition: .1 all;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: .1rem dashed #555;
+}
+
+.articles-item:hover {
+  cursor: pointer;
+  border-bottom: .1rem dashed #fff;
+}
+
+.articles-item:active {
+  border-bottom: .1rem solid rgb(0, 255, 0);
+}

@@ -1,0 +1,22 @@
+.topbar-text {
+  font-size: 1.5rem;
+  color: rgb(68, 132, 68);
+  margin: 0 0.5rem;
+  transition: .1s all;
+  user-select: none;
+}
+
+.topbar-text:hover {
+  cursor: pointer;
+  color: rgb(14, 88, 1);
+  transform: scale(1.05);
+}
+
+.topbar-text:active {
+  color: rgb(0, 255, 0);
+}
+
+.topbar-root {
+  display: flex;
+  justify-content: center;
+}
