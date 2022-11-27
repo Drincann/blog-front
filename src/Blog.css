@@ -38,6 +38,19 @@ html {
   max-height: calc(100% - 3rem);
 }
 
+@media screen and (max-width: 1000px) {
+  /* 移动端可恶的浏览器 header 遮盖适配 */
+
+  .topbar {
+    margin-top: 4rem;
+  }
+
+  .main {
+    max-height: calc(100% - 6rem);
+  }
+}
+
+
 .main>* {
   border-radius: 0.3rem;
 }
@@ -45,13 +58,13 @@ html {
 .filter {
   flex: 3 0;
   border: #444 solid 2px;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 
 .view {
   flex: 7 0;
   border: #444 solid 2px;
-  margin: 1rem;
+  margin: 0.5rem;
   color: #ccc;
   overflow-y: auto;
 }
