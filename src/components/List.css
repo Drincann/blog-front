@@ -8,7 +8,7 @@
 
 .articles-item {
   transition: .1 all;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   padding-bottom: 0.5rem;
   border-bottom: .1rem dashed #555;
 }
@@ -20,4 +20,23 @@
 
 .articles-item:active {
   border-bottom: .1rem solid rgb(0, 255, 0);
+}
+
+.articles-item>.articles-item-title {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.articles-item>.articles-item-content {
+  color: #999;
+  font-style: italic;
+  padding: 0 0.3rem;
+  font-size: 0.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .articles-item>.articles-item-title {
+    color: #fff;
+    font-size: 1.2rem;
+  }
 }
