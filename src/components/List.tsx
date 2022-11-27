@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Cover } from "./Article";
 import './List.css'
-import { ArticleDuck } from "./types";
+import { ArticleDuck } from "../types/ducks";
 interface ListProps {
   filter?: {
     labels?: string[];
