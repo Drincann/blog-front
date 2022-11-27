@@ -27,7 +27,7 @@ export const AboutPage = () => {
     <div className="markdown-body" style={{
       padding: '1rem',
       width: '100%',
-      height: '100%',
+      minHeight: '100%',
       boxSizing: 'border-box',
     }} dangerouslySetInnerHTML={{
       __html: html
