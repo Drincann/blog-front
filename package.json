@@ -24,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "ts-node --esm ./tools/deploy.ts"
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +45,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://127.0.0.1:8080"
+  "proxy": "http://127.0.0.1:8080",
+  "devDependencies": {
+    "tar": "^6.1.12",
+    "ts-node": "^10.9.1"
+  }
 }
