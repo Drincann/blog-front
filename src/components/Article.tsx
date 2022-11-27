@@ -1,7 +1,7 @@
 import './Article.css'
 import { marked } from 'marked'
 import ReactDOM from 'react-dom/client';
-import 'github-markdown-css'
+import 'github-markdown-css/github-markdown-dark.css'
 
 const CoverArticle = ({ markdown }: { markdown: string }) => {
   const tokens = marked.lexer(markdown);
