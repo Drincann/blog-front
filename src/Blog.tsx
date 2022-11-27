@@ -14,7 +14,7 @@ function Blog() {
       </div>
 
       <div className="main">
-        <div className="filter"></div>
+        {page !== 'about' && <div className="filter"></div>}
         <div className="view">
           {page === 'cards' && <List filter={{ type: 'card' }} />}
           {page === 'articles' && <List filter={{ type: 'normal' }} />}
