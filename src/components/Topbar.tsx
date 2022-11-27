@@ -18,9 +18,6 @@ export const Topbar = ({ onSelect, init }: TopbarProps) => {
             {itemStr}
           </span>
         )}
-      {/* <span className='topbar-text' onClick={() => onSelect?.('cards')}> cards </span> */}
-      {/* <span className='topbar-text' onClick={() => onSelect?.('articles')}> articles </span> */}
-      {/* <span className='topbar-text' onClick={() => onSelect?.('about')}> about </span> */}
     </div>
   );
 };
