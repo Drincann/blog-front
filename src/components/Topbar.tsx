@@ -3,13 +3,24 @@ import './Topbar.css'
 
 interface TopbarProps {
   onSelect?: (page: 'cards' | 'articles' | 'about') => void;
+  init?: 'cards' | 'articles' | 'about';
 }
-export const Topbar = ({ onSelect }: TopbarProps) => {
+export const Topbar = ({ onSelect, init }: TopbarProps) => {
+  const [active, setActive] = React.useState<'cards' | 'articles' | 'about'>(init ?? 'articles');
+
   return (
     <div className="topbar-root" >
-      <span className='topbar-text' onClick={() => onSelect?.('cards')}> cards </span>
-      <span className='topbar-text' onClick={() => onSelect?.('articles')}> articles </span>
-      <span className='topbar-text' onClick={() => onSelect?.('about')}> about </span>
+      {(['cards', 'articles', 'about'] as const)
+        .map(itemStr =>
+          <span
+            className={'topbar-text' + (active === itemStr ? ' active' : '')}
+            onClick={() => onSelect?.(itemStr) || setActive(itemStr)}>
+            {itemStr}
+          </span>
+        )}
+      {/* <span className='topbar-text' onClick={() => onSelect?.('cards')}> cards </span> */}
+      {/* <span className='topbar-text' onClick={() => onSelect?.('articles')}> articles </span> */}
+      {/* <span className='topbar-text' onClick={() => onSelect?.('about')}> about </span> */}
     </div>
   );
 };

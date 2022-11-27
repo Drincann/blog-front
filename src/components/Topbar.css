@@ -20,3 +20,8 @@
   display: flex;
   justify-content: center;
 }
+
+.topbar-text.active {
+  transform: scale(0.9);
+  color: rgb(14, 88, 1);
+}
