@@ -43,9 +43,9 @@ const limit = (str: string, len: number) => {
 const Item = ({ data, onClick }: { data: ArticleDuck, onClick: () => void }) => {
   return (
     <div className="articles-item" onClick={onClick}>
-      <div style={{ color: '#fff', fontSize: '2rem', fontWeight: 'bold' }}>{limit(data.title, 50)}</div>
+      <div style={{ color: '#fff', fontSize: '1.5rem' }}>{limit(data.title, 50)}</div>
       <span style={{ float: 'right', color: '#666' }}>{formatDate(data.updateAt)}</span>
-      <p style={{ color: '#999' }}>{limit(data.content, 100)}</p>
+      <p style={{ color: '#999', fontStyle: 'italic', padding: '0 0.5rem', fontSize: '0.5rem' }}>{limit(data.content, 100)}</p>
     </div>
   )
 }
