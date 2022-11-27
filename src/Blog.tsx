@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Blog.css';
 import { Topbar } from './components/Topbar';
 import { List } from './components/List';
 import { AboutPage } from './components/AboutPage';
+import { useQuerys } from './hooks/useQuerys';
 
 function Blog() {
-  const [page, setPage] = React.useState<'cards' | 'articles' | 'about'>('articles');
+  const [querys, setQuerys] = useQuerys<{ page?: string }>();
+  const [page, setPage] = React.useState<'cards' | 'articles' | 'about'>(typeof querys.page === 'string' ? querys.page as any : 'cards');
+
+  useEffect(() => setQuerys({ page: page ?? 'articles' }), [page]);
+  useEffect(() => setPage(querys?.page ?? 'articles' as any), [querys.page]);
 
   return (
     <div className="back">
       <div className="topbar">
-        <Topbar onSelect={page => setPage(page)} />
+        <Topbar onSelect={page => setQuerys({ page })} init={page} />
       </div>
 
       <div className="main">
