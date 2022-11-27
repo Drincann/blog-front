@@ -7,7 +7,7 @@ import { useQuerys } from './hooks/useQuerys';
 
 function Blog() {
   const [querys, setQuerys] = useQuerys<{ page?: string }>();
-  const [page, setPage] = React.useState<'cards' | 'articles' | 'about'>(typeof querys.page === 'string' ? querys.page as any : 'cards');
+  const [page, setPage] = React.useState<'cards' | 'articles' | 'about'>(typeof querys.page === 'string' ? querys.page as any : 'articles');
 
   useEffect(() => setQuerys({ page: page ?? 'articles' }), [page]);
   useEffect(() => setPage(querys?.page ?? 'articles' as any), [querys.page]);
