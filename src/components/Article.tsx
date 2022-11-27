@@ -7,10 +7,14 @@ const CoverArticle = ({ markdown }: { markdown: string }) => {
   const tokens = marked.lexer(markdown);
   console.log(tokens);
   return (
-    <div className="cover-root markdown-body" dangerouslySetInnerHTML={{
-      __html: marked.parse(markdown)
-    }}>
-    </div >
+    <div className='cover-root'>
+      {/* close button 祖先元素不存在 article-root, 所以会触发 _handleOutsideClick 的关闭逻辑 */}
+      <div className="close"></div>
+      <div className="article-root markdown-body" dangerouslySetInnerHTML={{
+        __html: marked.parse(markdown)
+      }}>
+      </div >
+    </div>
   )
 };
 
@@ -22,7 +26,7 @@ export const Cover: { root: null | ReactDOM.Root, [key: string]: any } = {
     console.log(e)
     const isUnderCoverRoot = (node: HTMLElement | null): boolean => {
       if (node === null) return false;
-      if (node.classList.contains('cover-root')) return true;
+      if (node.classList.contains('article-root')) return true;
       return isUnderCoverRoot(node.parentElement);
     };
     if (!isUnderCoverRoot(e.target as HTMLElement)) Cover.close();
