@@ -42,3 +42,9 @@ pre {
     height: 100%;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .cover-root {
+    padding: 1rem;
+  }
+}
