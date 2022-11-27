@@ -23,7 +23,7 @@ export const List = ({ filter }: ListProps) => {
         .then((res) => res.json())
         .then((json) => setArticles(json.data));
     }
-    , []);
+    , [filter]);
   return (
     <div className="articles-root">
       {articles.map((article) => <Item key={article._id} data={article} onClick={() => Cover.open(article.content)} />)}
