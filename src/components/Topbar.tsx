@@ -13,6 +13,7 @@ export const Topbar = ({ onSelect, init }: TopbarProps) => {
       {(['cards', 'articles', 'about'] as const)
         .map(itemStr =>
           <span
+            key={itemStr}
             className={'topbar-text' + (active === itemStr ? ' active' : '')}
             onClick={() => onSelect?.(itemStr) || setActive(itemStr)}>
             {itemStr}
