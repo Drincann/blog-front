@@ -1,24 +1,22 @@
 import { useEffect, useMemo, useState } from "react";
 import { marked } from 'marked';
+import { api } from "../common/api";
 
 export const AboutPage = () => {
   const [markdown, setMarkdown] = useState('');
   useEffect(() => {
-    fetch('/api/v1/getArticles', {
-      method: 'POST', headers: {
-        'Content-Type': 'application/json',
-      }, body: JSON.stringify({ type: 'about' }),
-    }).then(res => res.json()).then(json => {
-      if (json?.code === 0) {
-        console.log(json)
-        const article = json.data?.[0];
-        if (typeof article?.content === 'string') {
-          setMarkdown(article.content);
-        } else {
-          setMarkdown('# Not Found');
+    api.call('getArticles', { type: 'about' }).then(
+      json => {
+        if (json?.code === 0) {
+          const article = json.data?.[0];
+          if (typeof article?.content === 'string') {
+            setMarkdown(article.content);
+          } else {
+            setMarkdown('# Not Found');
+          }
         }
       }
-    });
+    )
   }, [])
   const html = useMemo(() => marked.parse(markdown), [markdown]);
 

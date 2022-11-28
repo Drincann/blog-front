@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Cover } from "./Article";
 import './List.css'
 import { ArticleDuck } from "../types/ducks";
+import { api } from "../common/api";
+
 interface ListProps {
   filter?: {
     labels?: string[];
@@ -13,17 +15,8 @@ export const List = ({ filter }: ListProps) => {
   const [articles, setArticles] = useState<ArticleDuck[]>([]);
   useEffect(
     () => {
-      fetch("/api/v1/getArticles", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(filter),
-      })
-        .then((res) => res.json())
-        .then((json) => setArticles(json.data));
-    }
-    , [filter]);
+      api.call('getArticles', filter).then(res => setArticles(res.data));
+    }, [filter]);
   return (
     <div className="articles-root">
       {articles.map((article) => <Item key={article._id} data={article} onClick={() => Cover.open(article.content)} />)}
