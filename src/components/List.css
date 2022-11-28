@@ -7,6 +7,7 @@
 }
 
 .articles-item {
+  position: relative;
   transition: .1 all;
   margin-top: 0.7rem;
   padding-bottom: 0.5rem;
@@ -34,9 +35,30 @@
   font-size: 0.5rem;
 }
 
+.articles-item>.articles-item-time {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateY(50%);
+}
+
+.articles-item .articles-item-time-item {
+  color: #666;
+  background-color: #111;
+}
+
 @media screen and (max-width: 1000px) {
   .articles-item>.articles-item-title {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
+
+  .articles-item>.articles-item-content {
+    font-size: 0.8rem;
+  }
+
+  .articles-item>.articles-item-time-item {
+    font-size: 0.6rem;
+  }
+
 }

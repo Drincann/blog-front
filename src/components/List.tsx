@@ -45,8 +45,12 @@ const Item = ({ data, onClick }: { data: ArticleDuck, onClick: () => void }) => 
     <div className="articles-item" onClick={onClick}>
       <div className="articles-item-title">{limit(data.title, 50)}</div>
       <p className="articles-item-content">{limit(data.content, 100)}</p>
-      <span style={{ float: 'right', color: '#666', backgroundColor: '#111' }}>create {formatDate(data.createAt)}</span>
-      <span style={{ float: 'right', color: '#666', backgroundColor: '#111', marginRight: '0.5rem' }}>update {formatDate(data.updateAt)}</span>
+      <div className="articles-item-time">
+        <span className="articles-item-time-item" style={{ marginRight: '0.5rem' }}>{formatDate(data.updateAt)}</span>
+        <span className="articles-item-time-item" style={{ marginRight: '0.5rem' }}>/</span>
+        <span className="articles-item-time-item" >{formatDate(data.createAt)}</span>
+      </div>
+
     </div>
   )
 }
