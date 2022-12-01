@@ -4,7 +4,7 @@ const API_PREFIX = '/api/v1/';
 const conditionalReqCache = cacheFactory.create('etag');
 
 export const api = {
-  call: async (apiName: string, body: any) => {
+  call: async (apiName: string, body?: any) => {
     const res = await fetch(API_PREFIX + apiName, {
       method: 'POST',
       headers: {
