@@ -6,6 +6,7 @@ export interface ArticleDuck {
 
   title: string
   content: string // markdown text
+  brief: string // brief text
 
   createAt: string
   updateAt: string
